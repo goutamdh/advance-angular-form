@@ -1,0 +1,59 @@
+/* -------------------------------------------------------------------------- */
+
+body {}
+
+
+/* -------------------------------------------------------------------------- */
+
+@include media-breakpoint-up(xs) {}
+
+@include media-breakpoint-up(sm) {}
+
+@include media-breakpoint-up(md) {}
+
+@include media-breakpoint-up(lg) {}
+
+@include media-breakpoint-up(xl) {}
+
+
+/* -------------------------------------------------------------------------- */
+
+// Scrollable component
+.scrollable {
+    &-parent {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    &-child {
+        flex: 1 1 auto;
+        overflow: auto;
+    }
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+// Scrollbar
+.scrollbars {
+    // padding: 0 0.5rem;
+    /* width */
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: #efefef;
+        border-radius: 50px;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 50px;
+    }
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: #999;
+    }
+}

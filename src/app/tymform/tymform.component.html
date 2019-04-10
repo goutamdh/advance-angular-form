@@ -1,0 +1,25 @@
+<h3 class="text-muted mt-3">Survey Questions</h3>
+
+<hr/>
+<form [formGroup]="questionForm" (ngSubmit)="onSubmit()" class="my-4">
+  <ol>
+    <li formArrayName="questions" *ngFor="let question of questionsControl?.controls; let i=index" class="py-3">
+      <ng-container [formGroupName]="i">
+          <div class="form-group text-muted">
+            <h3>{{question.value.questionText}}</h3>
+            <input type="hidden" class="form-control" formControlName="questionId">
+
+            <ul class="list-unstyled text-black-50">
+              <li formArrayName="options" *ngFor="let option of question?.controls['options']['controls']; let j=index">
+                  <ng-container [formGroupName]="j">
+                    <label>{{option.value.optionText}}</label>
+                    <input type="hidden" class="form-control" formControlName="optionId">
+                  </ng-container>
+              </li>
+            </ul>
+          </div>
+      </ng-container>
+    </li>
+  </ol>
+  <button class="btn btn-primary">Submit</button>
+</form>
